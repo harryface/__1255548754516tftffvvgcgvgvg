@@ -1,0 +1,120 @@
+from django.db import models
+from processor.models import *
+from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
+import datetime
+import PIL
+from account.models import *
+
+	
+class KgSheet(models.Model):
+	student = models.ForeignKey(KindergatenProfile)
+	#mathematics
+	ma_comment = models.CharField('Recognises number up to', max_length=30)
+	mb_comment = models.CharField('Understands Number Value', max_length=30)
+	mc_comment = models.CharField('Missing Integer', max_length=30)
+	md_comment = models.CharField('Identifies Ordinary Concept', max_length=30)
+	me_comment = models.CharField('Addition Of Numbers', max_length=30)
+	mf_comment = models.CharField('Subtraction Of Numbers', max_length=30)
+	mg_comment = models.CharField('Multiplication Of Numbers', max_length=30)
+	mh_comment = models.CharField('Division', max_length=30)
+	mi_comment = models.CharField('Fraction', max_length=30)
+	mpercentage = models.IntegerField(default=0)
+	#language
+	la_comment = models.CharField('Listening Skills', max_length=30)
+	lb_comment = models.CharField('Oral Expression', max_length=30)
+	lc_comment = models.CharField('Comprehension Skills', max_length=30)
+	ld_comment = models.CharField('Imaginative Composition', max_length=30)
+	le_comment = models.CharField('Interest In Books', max_length=30)
+	lf_comment = models.CharField('Interest In Own Talk Written Down', max_length=30)
+	lg_comment = models.CharField('Reading back Own Talk Written down', max_length=30)
+	lh_comment = models.CharField('Pink Reading Materials', max_length=30)
+	li_comment = models.CharField('Blue Reading Materials', max_length=30)
+	lj_comment = models.CharField('Green Reading Materials', max_length=30)
+	lk_comment = models.CharField('Functional Words', max_length=30)
+	ll_comment = models.CharField('Article', max_length=30)
+	lm_comment = models.CharField('Nouns', max_length=30)
+	ln_comment = models.CharField('Verbs', max_length=30)
+	lo_comment = models.CharField('Adjectives', max_length=30)
+	lpercentage = models.IntegerField(default=0)
+	#word study
+	wa_comment = models.CharField('Singular Plural', max_length=30)
+	wb_comment = models.CharField('Masculine Feminine', max_length=30)
+	wc_comment = models.CharField('Prefix Suffix', max_length=30)
+	wpercentage = models.IntegerField(default=0)
+	#phonic skills
+	pa_comment = models.CharField('Recognises Sound', max_length=30)
+	pb_comment = models.CharField('Recognises Letter', max_length=30)
+	pc_comment = models.CharField('Word Building', max_length=30)
+	pd_comment = models.CharField('Reads Picture Books', max_length=30)
+	pe_comment = models.CharField('Early Reading Books', max_length=30)
+	pf_comment = models.CharField('Comprehension', max_length=30)
+	ppercentage = models.IntegerField(default=0)
+	#writing skills
+	wsa_comment = models.CharField('Fine Motor Control', max_length=30)
+	wsb_comment = models.CharField('Corpus Pattern', max_length=30)
+	wsc_comment = models.CharField('Writes Ssymbol', max_length=30)
+	wsd_comment = models.CharField('Imaginative Composition', max_length=30)
+	wse_comment = models.CharField('Interest in Books', max_length=30)
+	wspercentage = models.IntegerField(default=0)
+	#practical life exercise
+	pla_comment = models.CharField('Pouring Exercise', max_length=30)
+	plb_comment = models.CharField('Transferring Exercise', max_length=30)
+	plc_comment = models.CharField('Carrying Exercise', max_length=30)
+	pld_comment = models.CharField('Dressing Frames', max_length=30)
+	ple_comment = models.CharField('Threading', max_length=30)
+	plf_comment = models.CharField('Polishing', max_length=30)
+	plg_comment = models.CharField('Cutting', max_length=30)
+	plh_comment = models.CharField('Sweeping Activities', max_length=30)
+	pli_comment = models.CharField('Welding Activities', max_length=30)
+	plj_comment = models.CharField('Folding', max_length=30)
+	plk_comment = models.CharField('Application', max_length=30)
+	pll_comment = models.CharField('Care Of The Environment', max_length=30)
+	plm_comment = models.CharField('Care Of Self', max_length=30)
+	pln_comment = models.CharField('Grace and Courtesy', max_length=30)
+	plo_comment = models.CharField('Co-ordination', max_length=30)
+	plp_comment = models.CharField('Concentration', max_length=30)
+	plpercentage = models.IntegerField(default=0)
+	#sensorial
+	sa_comment = models.CharField('Visual Perception and Discrimination', max_length=30)
+	sb_comment = models.CharField('Matching Exercise', max_length=30)
+	sc_comment = models.CharField('Spot The Difference', max_length=30)
+	sd_comment = models.CharField('Sequencing', max_length=30)
+	se_comment = models.CharField('Classification', max_length=30)
+	sf_comment = models.CharField('Identifies Color', max_length=30)
+	sg_comment = models.CharField('Auditory Discrimination', max_length=30)
+	sh_comment = models.CharField('Sense Of Touch', max_length=30)
+	spercentage = models.IntegerField(default=0)
+	#General Paper
+	ga_comment = models.CharField('Social Studies', max_length=30)
+	gb_comment = models.CharField('Health Science', max_length=30)
+	gc_comment = models.CharField('Basic Science and Tech', max_length=30)
+	gd_comment = models.CharField('Bible Knowledge', max_length=30)
+	ge_comment = models.CharField('Physical Education', max_length=30)
+	gf_comment = models.CharField('Civic Education', max_length=30)
+	gg_comment = models.CharField('French', max_length=30)
+	gh_comment = models.CharField('Music', max_length=30)
+	gli_comment = models.CharField('Art', max_length=30)
+	glj_comment = models.CharField('Igbo', max_length=30)
+	gpercentage = models.IntegerField(default=0)
+	#Grace and Courtsey
+	gca_comment = models.CharField('How to say PLEASE', max_length=30)
+	gcb_comment = models.CharField('How to say THANK YOU', max_length=30)
+	gcc_comment = models.CharField('How to say I AM SORRY', max_length=30)
+	gcd_comment = models.CharField('How to say EXCUSE ME', max_length=30)
+	gce_comment = models.CharField('Exchange of Greetings', max_length=30)
+	gcf_comment = models.CharField('Consideration of Others', max_length=30)
+	gcg_comment = models.CharField('Use of the Handkerchief', max_length=30)
+	gcpercentage = models.IntegerField(default=0)
+	
+class Comment (models.Model):
+	student = models.ForeignKey(KindergatenProfile)
+	teacher_comment = models.CharField(max_length=300)
+	teacher_name = models.CharField(max_length=300)
+	principal_comment = models.CharField(max_length=300)
+	principal_name = models.CharField(max_length=300)
+	hod_name =  models.CharField(max_length=300)
+	hod_comment =  models.CharField(max_length=300)
+	verdit =  models.CharField(max_length=300)
+	#date = 
+	

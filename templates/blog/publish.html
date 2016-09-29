@@ -1,0 +1,121 @@
+
+{% extends "dashboard/administrator/base.html" %}
+{% load staticfiles %}
+{% block content %}
+		
+		
+			 <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Create A Teacher Account</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  
+                  <div class="x_content">
+				 <br />
+				 {% if page == 'post' %}
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method = "POST" action =  '{% url "blog:publish_post" "blog" %}'>{% csrf_token %}
+
+                      
+					  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="headshot">Picture <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+						  <label class="btn btn-primary form-control col-md-7 col-xs-12" for="my-file-selector">
+								<input id="my-file-selector" required = "required" name = "headshot" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());" onchange="$('#upload-file-info').html($(this).val());">
+								Click to Upload Headshot
+							</label>
+							<span class='label label-info' id="upload-file-info"></span>
+                        </div>
+                      </div>
+					  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" name="title">Title <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="surname" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      
+					<div class="form-group">
+                        <label for="Address" class="control-label col-md-3 col-sm-3 col-xs-12">Body (50 chars min, 500 max) :</label>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea id="message" required="required" class="form-control" name="address" data-parsley-trigger="keyup" data-parsley-minlength="50" data-parsley-maxlength="500" data-parsley-minlength-message="Come on! You need to enter at least a 50 caracters long address.."
+                            data-parsley-validation-threshold="10"></textarea>
+						</div>
+					</div>
+					                      
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+
+                    </form>
+					
+					{% else %}
+
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method = "POST" action =  '{% url "blog:publish_post" "gallery" %}'>{% csrf_token %}
+
+                      
+					  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="headshot">Picture <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+						  <label class="btn btn-primary form-control col-md-7 col-xs-12" for="my-file-selector">
+								<input id="my-file-selector" required = "required" name = "headshot" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());" onchange="$('#upload-file-info').html($(this).val());">
+								Click to Upload Gallery Picture
+							</label>
+							<span class='label label-info' id="upload-file-info"></span>
+                        </div>
+                      </div>
+					  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" name="title">Title <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="surname" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      
+					<div class="form-group">
+                        <label for="Address" class="control-label col-md-3 col-sm-3 col-xs-12">Description (50 chars min, 500 max) :</label>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea id="message" required="required" class="form-control" name="address" data-parsley-trigger="keyup" data-parsley-minlength="50" data-parsley-maxlength="500" data-parsley-minlength-message="Come on! You need to enter at least a 50 caracters long address.."
+                            data-parsley-validation-threshold="10"></textarea>
+						</div>
+					</div>
+					                      
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+
+                    </form>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

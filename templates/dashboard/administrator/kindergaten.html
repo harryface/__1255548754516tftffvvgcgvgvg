@@ -1,0 +1,97 @@
+{% extends "dashboard/administrator/base.html" %}
+{% load staticfiles %}
+{% block content %}
+		
+		
+			 <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Kindergaten Upload Sheet</h3>
+              </div>
+
+              
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  
+                  <div class="x_content">
+				 <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method = "POST" action = '{% url "resultsheet:kindergaten" %}'>{% csrf_token %}
+
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="session">Student <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<select class = "form-control col-md-7 col-xs-12" name="session"> 
+									{% for students in student %}<option value="{{students.admission_num}}">{{students.surname}} {{students.first_name}} || {{students.admission_num}}</option>{% endfor %}
+								</select>
+							</div>
+						</div>
+						<div class = 'row'>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<fieldset> <legend>Mathematics</legend>
+						
+									<div class="form-group">
+										<label class="control-label col-md-5 col-sm-5 col-xs-12" for="surname">Surname <span class="required">*</span>
+										</label>
+										<div class="col-md-5 col-sm-5 col-xs-8">
+											<textarea id="comment" required="required" class="form-control" name="comment" data-parsley-trigger="keyup" data-parsley-minlength="5" data-parsley-maxlength="30" data-parsley-minlength-message="Come on! You need to enter at least a 5 caracters long comment." data-parsley-validation-threshold="10"></textarea>
+										</div>
+										<div class="col-md-2 col-sm-2 col-xs-4">
+										  <input type="text" name="score" required="required" class="form-control col-md-7 col-xs-12">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="surname">Surname <span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+										  <input type="text" name="surname" required="required" class="form-control col-md-7 col-xs-12">
+										</div>
+									</div>
+									
+								</fieldset>
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<fieldset> <legend>Language</legend>
+						
+									<div class="form-group">
+										<label class="control-label col-md-5 col-sm-5 col-xs-12" for="surname">Surname <span class="required">*</span>
+										</label>
+										<div class="col-md-5 col-sm-5 col-xs-8">
+											<textarea id="comment" required="required" class="form-control" name="comment" data-parsley-trigger="keyup" data-parsley-minlength="5" data-parsley-maxlength="30" data-parsley-minlength-message="Come on! You need to enter at least a 5 caracters long comment." data-parsley-validation-threshold="10"></textarea>
+										</div>
+										<div class="col-md-2 col-sm-2 col-xs-4">
+										  <input type="text" name="score" required="required" class="form-control col-md-7 col-xs-12">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3 col-sm-3 col-xs-12" for="surname">Surname <span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+										  <input type="text" name="surname" required="required" class="form-control col-md-7 col-xs-12">
+										</div>
+									</div>
+									
+								</fieldset>
+							</div>
+						</div>	
+						
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+
+                    </form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

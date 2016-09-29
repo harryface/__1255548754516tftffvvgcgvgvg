@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+    {% block navigation %}
+	<!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#history">Our History</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#facilities">Facilities</a>
+                    </li>
+					
+                    <li>
+                        <a  href="/contact/">Contact</a>
+                    </li>
+					<li>
+                        <a href="/blog/">Blog</a>
+                    </li>
+					<li>
+						<a class="btn btn-xl" href="/card/result/">Check Result</a>
+					</li>
+                </ul>
+            </div>
+	{% endblock %}
+
+
+{% block content %}
+
+<section class = 'bg-light-gray'>
+	<div class="container">
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		{% if error %}
+			<i class = "bg-danger">&nbsp; Wrong Data! Check your details<i>
+			<hr>
+			
+		<h1>&nbsp; Invalid details</h1>
+		<h2>&nbsp; &nbsp; Click <a href = "/card/result/"> here </a> to Check Again.</h2>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+			
+		
+		{% elif status %}
+			<h2><i class = "bg-danger">&nbsp; Results are not yet ready for viewing<i></h2>
+			<hr>
+			<h4> kindly check Back Later, Thanks.</h4>
+			<h2>&nbsp; &nbsp; Click <a href = "/card/result/"> here </a> to Check Again.</h2>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+			
+		
+		{% elif nt_match %}
+			<h2><i class = "bg-danger">&nbsp; Either You have exhausted this Card or its locked to a different Class</i></h2>
+			<hr>
+			
+
+		<h2>&nbsp; &nbsp; Click <a href = "/card/result/"> here </a> to Check Again.</h2>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+			
+		
+		{% elif used %}
+			<h1><i class = "bg-danger">&nbsp; This Card has been Used by another student, purchase a new Card.</i></h1>
+			<hr>
+			
+		<h2>&nbsp; &nbsp; Click <a href = "/card/result/"> here </a> to Check Again.</h2>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+
+		{% else %}
+
+		<h1>&nbsp; Invalid details</h1>
+		<h2>&nbsp; &nbsp; Click <a href = "/card/result/"> here </a> to Check Again.</h2>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+			
+		{% endif %}
+
+	</div>
+</section>
+
+
+
+
+
+
+{% endblock %}

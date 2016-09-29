@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if form.errors %}
+	<p class = "error"> Sorry, that's not a valid Admission Number</p>
+{% endif %}
+
+<form action = "/portal/auth/" method = "post"> {% csrf_token %}
+	<label for="username"> Admission Number: </label>
+	<p><input type ="text" name="username" value="" id = "username"></p>
+	
+	
+	<p><input type= "submit" value= "login" /></p>
+
+
+</form>
+
+{% endblock %}

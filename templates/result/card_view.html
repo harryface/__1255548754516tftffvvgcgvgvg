@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+    {% block navigation %}
+	<!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#history">Our History</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#facilities">Facilities</a>
+                    </li>
+					
+                    <li>
+                        <a  href="/contact/">Contact</a>
+                    </li>
+					<li>
+                        <a href="/blog/">Blog</a>
+                    </li>
+					<li>
+						<a class="btn btn-xl" href="/card/result/">Check Result</a>
+					</li>
+                </ul>
+            </div>
+	{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+	<p class = "error"> Sorry, that's not a valid Card Detail</p>
+{% endif %}
+
+<form action = "/card/auth/" method = "post"> {% csrf_token %}
+	<label for="token"> Card Number: </label>
+	<p><input type ="text" name="token" value="" id = "token"></p>
+	<label for="username"> ADM Number: </label>
+	<p><input type ="text" name="username" value="" id = "username"></p>
+	
+	
+	<p><input type= "submit" value= "Check" /></p>
+
+
+</form>
+
+{% endblock %}

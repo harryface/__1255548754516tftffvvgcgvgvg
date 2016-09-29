@@ -1,0 +1,69 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {% if adminform and add %}
+    <script type="text/javascript">
+        (function($){
+            $(document).ready(function() {
+                $('form#{{ opts.model_name }}_form :input:visible:enabled:first').focus()
+            });
+        }(grp.jQuery));
+    </script>
+	<script src="http://code.jquery.com/jquery-1.5.js"></script>
+    <script>
+      function countChar(val) {
+        var len = val.value.length;
+        if (len >= 11) {
+          val.value = val.value.substring(0, 11);
+        } else {
+          $('#charNum').text(11 - len);
+		  $('#remNum').text(len);
+        }
+      };
+    </script>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+<i> {{message}}</i>
+
+<h2> Kindly note that the Sender ID cannnot be greater than 11 character </h2>
+<p> &nbsp; </p>
+
+
+<fieldset class="grp-module "><div class="grp-row grp-cells-1 session "><div class="l-2c-fluid l-d-4"><div class="c-1">
+
+	<form action = "send/" method = "post" id="{{ opts.model_name }}_form"> {% csrf_token %}
+				
+		<label class="required" for="sender_id"> Sender ID : </label> </div>
+		<div class="c-2">
+		<input name="sender_id" value="" onkeyup="countChar(this)"  id = "sender_id" > </input> </div></div></div><div class="grp-row grp-cells-1 level "><div class="l-2c-fluid l-d-4"><div class="c-1">
+
+		<label class="required" for="session"> Session : </label> </div>
+		<div class="c-2">
+		<select name="session"> <option value="2014/2015">2014/2015</option> <option value="2015/2016">2015/2016</option> <option value="2016/2017">2016/2017</option> <option value="2017/2018">2017/2018</option> </select>  </div></div></div><div class="grp-row grp-cells-1 level "><div class="l-2c-fluid l-d-4"><div class="c-1">
+		
+		<label class="required" for="subclass"> Class : </label> </div>
+		<div class="c-2">
+		<select name="subclass"> <option value="ALL">ALL</option> <option value="JSS1">JSS 1</option> <option value="JSS2">JSS 2</option> <option value="JSS3">JSS 3</option><option value="SSS1">SSS 1</option> <option value="SSS2">SSS 2</option> <option value="SSS3">SSS 3</option> </select>  </div></div></div><div class="grp-row grp-cells-1 level "><div class="l-2c-fluid l-d-4"><div class="c-1">
+		
+		<label class="required" for="arm"> Arm : </label> </div>
+		<div class="c-2">
+		<select name="arm"> <option value="ALL">ALL</option> <option value="A">A</option> <option value="B">B</option> <option value="C">C</option> <option value="D">D </option> <option value="E">E</option> <option value="F">F</option> <option value="G">G</option> <option value="H">H</option> <option value="I">I</option></select>  </div></div></div><div class="grp-row grp-cells-1 level "><div class="l-2c-fluid l-d-4"><div class="c-1">
+		
+		<label class="required" for="message_box"> Message : </label> </div>
+		<div class="c-2">
+		<input  name="message" value="" id = "text" > </input> </div></div></div><div class="grp-row grp-cells-1 level "><div class="l-2c-fluid l-d-4"><div class="c-1">
+		
+		
+		<p> &nbsp; </p>
+		
+		<input type= "submit" value= "Send Message" class = "addlink"/>
+	
+	</form>
+</div></div></div></fieldset>
+
+{% endblock %}

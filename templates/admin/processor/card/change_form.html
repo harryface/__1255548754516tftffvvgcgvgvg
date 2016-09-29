@@ -1,0 +1,21 @@
+{% extends "admin/change_form.html" %}
+
+
+
+{% block content %}
+
+
+<fieldset class="grp-module "><div class="grp-row grp-cells-1 session "><div class="l-2c-fluid l-d-4"><div class="c-1">
+		<form action = "generate" method = "post" id="{{ opts.model_name }}_form"> {% csrf_token %}
+				
+			<label for="number" class="required"> Number Of Cards: </label></div>
+			<div class="c-2">
+			<select name="number"> <option value="10">10</option> <option value="200">200</option> <option value="500">500</option> <option value="1000">1000</option> </select></div></div></div><div class="grp-row grp-cells-1 level "><div class="l-2c-fluid l-d-4"><div class="c-1">
+			<p>&nbsp;</p>
+				
+			<input class="addlink" type= "submit" value= "Generate Card"/>
+			  
+		</form>
+</div></div></div></fieldset>
+
+{% endblock %}

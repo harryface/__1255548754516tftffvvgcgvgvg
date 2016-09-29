@@ -1,0 +1,321 @@
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="cabilon Secondary School online portal">
+    <meta name="author" content="Ilonze ugochukwu">
+
+    <title>YOUR SCHOOL TITLE</title>
+	<link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+	 <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+	
+	<!-- Result Sheet CSS -->
+	<link href="{% static 'css/result.css'%}" rel="stylesheet">
+	<link href="{% static 'css/style.css'%}" rel="stylesheet">
+	
+</head>
+<body>
+<!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Choose to View</h2>
+                    <h3 class="section-subheading text-muted">Kindly click for 3rd term result or Annual Result</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/1.png' %}" class="img-responsive img-centered" alt="">
+                    </a>
+                    
+					
+                </div>
+                <div class="col-md-6 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/2.png' %}" class="img-responsive" alt="Annual Result">
+                    </a>
+                   
+                </div>
+                
+            </div>
+        </div>
+    </section>
+	
+
+
+
+
+<!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class='container'>	
+				
+					 <img width = '60px' height = '70px' align="right" src="{% static 'img/report2_2.png' %}" >
+					 <img width = '80px' height = '70px' align="left" src="{% static 'img/report1_2.png' %}" > 
+					
+					 <h1 class="d"> YOUR SCHOOL TITLE, LOCATION </h1> 
+					 <p class="d"> Perseverance Conquers </p>
+				
+				<table class='center b' >
+					<tr>
+					<td width ='70%'><b>&nbsp; &nbsp; Postal Address</b></td>
+					<td> e-mail:</td>
+					</tr>
+
+					<tr>
+					<td>&nbsp; &nbsp; P.M.B | </td>
+					<td> Web: www.YOURSCHOOL.COM </td>
+					</tr>
+					
+					<tr>
+					<td>&nbsp; &nbsp; your school address</td>
+					<td> Phone: </td>
+					</tr>
+					
+				</table>
+				<hr>
+
+				<table border='0' width='100%' class = 'center'>
+					<tr><td rowspan ='3' ><img height='80px' width = '70px' src="{{student.headshot.url}}" ></td>
+					 <td><p>Name: {{student.surname}}, {{student.first_name}} {{student.middle_name}}</p></td>
+					 <td>{% for data in summary %}<p>Term: {{data.term}}</p>{% endfor %}</td>
+					</tr>
+					
+					<tr >
+					 <td width ='45%'>{% for data in summary %}<p>Class: {{data.level}}{{data.class_arm}}</p>{% endfor %}</td>
+					 <td width ='35%'>{% for data in summary %}<p>Session: {{data.session}}</p>{% endfor %}</td>
+					</tr>
+					
+					<tr>
+					 <td>{% for data in summary %}<p>Your Average: {{data.average}} </p>{% endfor %}</td>
+					 <td><p>Admission No: {{student.admission_num}}</p></td>
+					</tr>
+
+					<tr>
+					 <td width ='20%'><p>No. in Class: {{numnum}}</p></td>
+					 <td>{% for data in summary %}<p>Position: {{data.position}} </p>{% endfor %}</td>
+					 <td><p>Next term Begins: </p></td>
+					</tr>
+					
+				</table>
+					<h2 class="d"> REPORT SHEET FOR JUNIOR AND SENIOR SECONDARY</h2>
+				
+
+				<table border = '1' width = '90%' class='center' >
+					<tr><th>Subject</th><th>Assessment</th><th>Exam Score</th><th>Total Score</th><th>Grade</th><th>Class Av.</th><th>Remark</th></tr>
+
+				{% for data in result %}
+					
+					<tr>
+					<td>{{data.subject}}</td>
+					<td>{{data.CA_score}}</td>
+					<td>{{data.exam_score}}</td>
+					<td>{{data.total_score}}</td>
+					<td>{{data.grade}}</td>
+					<td>{{data.class_average.average}}</td>
+
+					</tr>
+					
+				{%endfor %}
+				</table>
+				<table border = '1' >
+					<tr><th width = '130px'>KEY TO GRADE</th> <td>JUNIOR:&nbsp; &nbsp; A = Excellent(70 - 100%),&nbsp; &nbsp;  C = Credit(55 - 69%),&nbsp; &nbsp; P = Pass(40 - 54%),&nbsp; &nbsp; F = Fail(Below 40%) </td> </tr>
+					<tr><td> </td> <td>SENIOR:&nbsp; &nbsp; A1 = Excellent(75 - 100%),&nbsp; &nbsp;  B2 = Very Good(70 - 74%),&nbsp; &nbsp;  B3 = Good(65 - 69%),&nbsp; &nbsp;  C4 = Credit(60 - 64%),&nbsp; &nbsp;  C5 = Credit(55 - 69%),&nbsp; &nbsp;  C6 = Credit(50 - 54%),&nbsp; &nbsp;  D7 = Pass(45 - 54%),&nbsp; &nbsp;  E8 = Pass(40 - 44%),&nbsp; &nbsp;  F = Fail(Below 40%)</td> </tr>
+					<tr><th>KEY TO RATINGS</th> <td>1 = Very Poor,&nbsp; &nbsp;  2 = Poor,&nbsp; &nbsp;  3 = Fair,&nbsp; &nbsp;  4 = Good,&nbsp; &nbsp;  5 = Excellent </td> </tr>
+				</table>	
+
+				<table border = '1' class='center'>
+					<tr><th class='d' colspan='2'>PSYCHOMOTOR </th> <th class='d' colspan='2'>BEHAVIOUR </th> <th class='d' colspan='2'>AFFECTIVE </th> </tr>
+					<tr><td>Handwriting </td> <td width = '80px'>&nbsp; </td> <td>Punctuality </td> <td width = '80px'>&nbsp; </td> <td>Politeness </td> <td width = '80px'> &nbsp;</td> </tr>
+					<tr><td>Fluency </td> <td >&nbsp; </td> <td>Attending of Classes </td> <td >&nbsp; </td> <td>Spirit of Responsibility </td> <td >&nbsp; </td> </tr>
+					<tr><td>Games </td> <td >&nbsp; </td> <td>Carrying out Assignments </td> <td >&nbsp; </td> <td>Sense of Cooperation </td> <td >&nbsp; </td> </tr>
+					<tr><td>Gymnastic </td> <td >&nbsp; </td> <td>Neatness </td> <td >&nbsp; </td> <td>Attentiveness </td> <td >&nbsp; </td> </tr>
+					<tr><td>Drawing and Painting </td> <td >&nbsp; </td> <td>Relationship with Staff </td> <td >&nbsp; </td> <td>Initiative </td> <td >&nbsp; </td> </tr>
+					<tr><td>Technical Work </td> <td >&nbsp; </td> <td>Relationship with Students </td> <td >&nbsp; </td> <td>Organizational Ability </td> <td >&nbsp; </td> </tr>
+					<tr><td>Handling of Tools </td> <td >&nbsp; </td> <td>Honesty </td> <td >&nbsp; </td> <td>Obedience </td> <td >&nbsp; </td> </tr>
+					<tr><td>Lab Workshop </td> <td >&nbsp; </td> <td>Self Control </td> <td >&nbsp; </td> <td>Perseverance </td> <td >&nbsp; </td> </tr>
+					<tr><td>Crafts </td> <td >&nbsp; </td> <td>Participation in Activities </td> <td >&nbsp; </td> <td>Reliability </td> <td >&nbsp; </td> </tr>
+					<tr><td>Musical Skills </td> <td >&nbsp; </td> <td>Helping Others </td> <td >&nbsp; </td> <td>Physical and Health </td> <td >&nbsp; </td> </tr>
+
+				</table>
+					
+				
+				<p>&nbsp;</p>
+
+				<p>Form Teacher's Comment: </p>
+
+				<p>Principals Signature: </p>
+
+				 
+				 
+				 <a href="javascript:window.print()"><button type = "button" class = "btn btn-info">Print Report</button></a>
+				<p>&nbsp;</p>
+				<button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+				<p>&nbsp;</p>
+			</div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+			
+					 <img width = '60px' height = '70px' align="right" src="{% static 'img/report2_2.png' %}" >
+					 <img width = '80px' height = '70px' align="left" src="{% static 'img/report1_2.png' %}" > 
+					
+					 <h1 class="d"> Your school </h1> 
+					 <p class="d"> Perseverance Conquers </p>
+				
+				<table class='center b' >
+					<tr>
+					<td width ='70%'><b>&nbsp; &nbsp; Postal Address</b></td>
+					<td> e-mail:</td>
+					</tr>
+
+					<tr>
+					<td>&nbsp; &nbsp; P.M.B | </td>
+					<td> Web: www.yourschool.com </td>
+					</tr>
+					
+					<tr>
+					<td>&nbsp; &nbsp; your school address</td>
+					<td> Phone: </td>
+					</tr>
+					
+				</table>
+				<hr/>
+
+				<table border='0' width='100%' class = 'center'>
+					<tr><td rowspan ='3' ><img height='80px' width = '70px' src="{{student.headshot.url}}" ></td>
+					 <td><p>Name: {{student.surname}}, {{student.first_name}} {{student.middle_name}}</p></td>
+					 <td><p>Term: Annual</p></td>
+					</tr>
+					
+					<tr >
+					 <td width ='45%'>{% for data in annualsummary %}<p>Class: {{data.level}}{{data.class_arm}}</p>{% endfor %}</td>
+					 <td width ='35%'>{% for data in annualsummary %}<p>Session: {{data.session}}</p>{% endfor %}</td>
+					</tr>
+					
+					<tr>
+					 <td>{% for data in annualsummary %}<p>Your Average: {{data.average}} </p>{% endfor %}</td>
+					 <td><p>Admission No: {{student.admission_num}}</p></td>
+					</tr>
+
+					<tr>
+					 <td width ='20%'><p>No. in Class: {{numnum}}</p></td>
+					 <td>{% for data in annualsummary %}<p>Position: {{data.position}} </p>{% endfor %}</td>
+					 <td><p>Next term Begins: </p></td>
+					</tr>
+					
+				</table>
+					<h2 class="d"> REPORT SHEET FOR JUNIOR AND SENIOR SECONDARY</h2>
+				
+
+				<table border = '1' width = '90%' class='center' >
+					<tr><th>Subject</th><th>Assessment</th><th>Exam Score</th><th>Total Score</th><th>Grade</th><th>Class Av.</th><th>Remark</th></tr>
+
+				{% for data in annual %}
+					
+					<tr>
+					<td>{{data.subject}}</td>
+					<td>{{data.CA_score}}</td>
+					<td>{{data.exam_score}}</td>
+					<td>{{data.total_score}}</td>
+					<td>{{data.grade}}</td>
+					<td>{{data.class_average}}</td>
+
+					</tr>
+					
+				{%endfor %}
+				</table>
+				<table border = '1'>
+					<tr><th width = '130px'>KEY TO GRADE</th> <td>JUNIOR:&nbsp; &nbsp; A = Excellent(70 - 100%),&nbsp; &nbsp;  C = Credit(55 - 69%),&nbsp; &nbsp; P = Pass(40 - 54%),&nbsp; &nbsp; F = Fail(Below 40%) </td> </tr>
+					<tr><td> </td> <td>SENIOR:&nbsp; &nbsp; A1 = Excellent(75 - 100%),&nbsp; &nbsp;  B2 = Very Good(70 - 74%),&nbsp; &nbsp;  B3 = Good(65 - 69%),&nbsp; &nbsp;  C4 = Credit(60 - 64%),&nbsp; &nbsp;  C5 = Credit(55 - 69%),&nbsp; &nbsp;  C6 = Credit(50 - 54%),&nbsp; &nbsp;  D7 = Pass(45 - 54%),&nbsp; &nbsp;  E8 = Pass(40 - 44%),&nbsp; &nbsp;  F = Fail(Below 40%)</td> </tr>
+					<tr><th>KEY TO RATINGS</th> <td>1 = Very Poor,&nbsp; &nbsp;  2 = Poor,&nbsp; &nbsp;  3 = Fair,&nbsp; &nbsp;  4 = Good,&nbsp; &nbsp;  5 = Excellent </td> </tr>
+				</table>	
+
+				<table border = '1' class='center'>
+					<tr><th class='d' colspan='2'>PSYCHOMOTOR </th> <th class='d' colspan='2'>BEHAVIOUR </th> <th class='d' colspan='2'>AFFECTIVE </th> </tr>
+					<tr><td>Handwriting </td> <td width = '80px'>&nbsp; </td> <td>Punctuality </td> <td width = '80px'>&nbsp; </td> <td>Politeness </td> <td width = '80px'> &nbsp;</td> </tr>
+					<tr><td>Fluency </td> <td >&nbsp; </td> <td>Attending of Classes </td> <td >&nbsp; </td> <td>Spirit of Responsibility </td> <td >&nbsp; </td> </tr>
+					<tr><td>Games </td> <td >&nbsp; </td> <td>Carrying out Assignments </td> <td >&nbsp; </td> <td>Sense of Cooperation </td> <td >&nbsp; </td> </tr>
+					<tr><td>Gymnastic </td> <td >&nbsp; </td> <td>Neatness </td> <td >&nbsp; </td> <td>Attentiveness </td> <td >&nbsp; </td> </tr>
+					<tr><td>Drawing and Painting </td> <td >&nbsp; </td> <td>Relationship with Staff </td> <td >&nbsp; </td> <td>Initiative </td> <td >&nbsp; </td> </tr>
+					<tr><td>Technical Work </td> <td >&nbsp; </td> <td>Relationship with Students </td> <td >&nbsp; </td> <td>Organizational Ability </td> <td >&nbsp; </td> </tr>
+					<tr><td>Handling of Tools </td> <td >&nbsp; </td> <td>Honesty </td> <td >&nbsp; </td> <td>Obedience </td> <td >&nbsp; </td> </tr>
+					<tr><td>Lab Workshop </td> <td >&nbsp; </td> <td>Self Control </td> <td >&nbsp; </td> <td>Perseverance </td> <td >&nbsp; </td> </tr>
+					<tr><td>Crafts </td> <td >&nbsp; </td> <td>Participation in Activities </td> <td >&nbsp; </td> <td>Reliability </td> <td >&nbsp; </td> </tr>
+					<tr><td>Musical Skills </td> <td >&nbsp; </td> <td>Helping Others </td> <td >&nbsp; </td> <td>Physical and Health </td> <td >&nbsp; </td> </tr>
+
+				</table>
+					
+				
+				<h2>{% for data in annualsummary %}<p>Verdict: {{data.verdict}} </p>{% endfor %}</h2>
+
+				<p>Form Teacher's Comment: </p>
+
+				<p>Principals Signature: </p>
+
+				 
+				 
+				<a href="javascript:window.print()"><button type = "button"  class = "btn btn-info">Print Report</button></a>
+				<p>&nbsp;</p>
+				<button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+    </div>
+	
+	
+<!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="j{% static 's/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/agency.js' %}"></script>
+	
+</body>
+</html>

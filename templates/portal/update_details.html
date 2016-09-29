@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Hello {{full_name}}, This is your page</p>
+<p>Click <a href = "/portal/logout/"> here </a> to logout.</p>
+
+<form action = "/edit/" method = "post"> {% csrf_token %}
+
+{{form.as_p}}
+
+
+<input type="submit" name = "Update" value = "Update Profile">
+</form>
+
+{% endblock %}

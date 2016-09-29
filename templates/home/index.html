@@ -1,0 +1,208 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+	
+	<section id="top">
+		<div class="container-fluid text-center";>
+            <div class="intro-text">
+                <div class="intro-heading">Our Expertise</div>
+                <div class="intro-lead-in">With wide practical experience in custom web and mobile application development, We are committed to improving education by promoting effective ICT use.</div>
+                <a target='_blank' href= '{% url "portal" %}' class="btn btn-primary btn-lg">Tell Me More</a>
+            </div>
+		</div>
+	</section>
+
+
+	<section id="portfolio">
+		<div class="container">
+			<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Services</h2>
+                    <h3 class="section-subheading text-muted">We keep our customers happy with our offers, and do not forget to take advantage of our free school management systems.</h3>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal7" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+                        <img src="{% static 'img/image/Webcart.png' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Secured E-commerce Site</h4>
+							<p class="text-muted">Creates with security in mind with any instant payment gateways of your choice. You just dont have anything to worry about.</p>
+						</div>
+					</div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="{% static 'img/image/Webhost.png' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>99% Uptime Hosting</h4>
+							<p class="text-muted">Uses a cloud based scalable server, which allow clients enjoy all round the clock presence of their businesses online.</p>
+						</div>
+					</div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="{% static 'img/image/seo1.png' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Search Engine Optimisation</h4>
+							<p class="text-muted">Optimizes your website for search visiblity on the internet, providing the enabling environment for maximal audience.</p>
+						</div>
+					</div>
+                </div>
+				                
+			<!--/div-->
+			<!--div class="row"-->
+                <div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="{% static 'img/image/schoolUniform.png' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Special School Services</h4>
+							<p class="text-muted">Makes a school standout, with a unique and new technology printing uniforms portraying smartness and greatness.</p>
+						</div>
+					</div>
+                </div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src= "{% static 'img/image/responsive2.png' %}" class = "img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Responsive Web Design</h4>
+							<p class="text-muted">Utilises Ultra-moderm web technologies and creativity in building cross-browser flexible web applications.</p>
+						</div>
+					</div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="{% static 'img/image/domain.jpg' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Domain Registration</h4>
+							<p class="text-muted">Gives a Platform for the registration and renewal of domain names, .ng domains can be gotten at a second level. </p>
+						</div>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal8" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="{% static 'img/image/payment.png' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Web Payment Integration</h4>
+							<p class="text-muted">Accept payment on a website from anywhere around the world. We integrate Interswitch, Paypal, GTPay, (MasterCard, Visa and Verve), etc.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="{% static 'img/image/bulksms.png' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Website SMS Integration</h4>
+							<p class="text-muted">Integrates SMS feedback form on website, automating flexible means of communicating directly with your customers and audience.</p>
+						</div>
+					</div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 ">
+					<div class = "portfolio-item">
+						<a href="#portfolioModal9" class="portfolio-link" data-toggle="modal">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<i class="fa fa-plus fa-3x"></i>
+								</div>
+							</div>
+							<img src="{% static 'img/image/androidapp.jpg' %}" class="img-responsive" alt="">
+						</a>
+						<div class="portfolio-caption text-center">
+							<h4>Android Architecture</h4>
+							<p class="text-muted">Develops Android Application that runs on any version of Android. We invest best technology known to man to serve you better.</p>
+						</div>
+					</div>
+				</div>
+				
+			<!--/div-->
+			</div>
+		</div>
+	</section>
+	
+	<div id="note" class = "">
+		<div class = "container text-center">
+			<p class="s">We are eager to listen to your ideas and develop your rock-star app  <a href=  '{% url "portal" %}' class = "btn btn-primary btn-md">Get in Touch</a></p>
+		</div>
+	</div>
+	
+	<section id ="technology" style = "padding-top:5%;">
+		<div class = "container">
+			<div class="row text-center">
+				<div class="col-lg-12">
+					<h2 class="section-heading">Technologies</h2>
+					<h3 class="section-subheading text-muted">Our experts use cutting-edge technologies to design, develop and test our innovations</h3>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-lg-2 col-md-4 col-xs-6"> <img src="{% static 'img/technologies/1.png' %}" class="img-responsive img-centered a" alt=""> </div>
+				<div class = "col-lg-2 col-md-4 col-xs-6"> <img src="{% static 'img/technologies/2.png' %}" class="img-responsive img-centered a" alt=""> </div>
+				<div class = "col-lg-2 col-md-4 col-xs-6"> <img src="{% static 'img/technologies/5.png' %}" class="img-responsive img-centered a" alt=""> </div>
+				<div class = "col-lg-2 col-md-4 col-xs-6"> <img src="{% static 'img/technologies/4.png' %}" class="img-responsive img-centered a" alt=""> </div>
+				<div class = "col-lg-2 col-md-4 col-xs-6"> <img src="{% static 'img/technologies/6.png' %}" class="img-responsive img-centered a" alt=""> </div>
+				<div class = "col-lg-2 col-md-4 col-xs-6"> <img src="{% static 'img/technologies/3.png' %}" class="img-responsive img-centered a" alt=""> </div>
+			</div>
+		</div>
+	</section>
+	
+	{% endblock %}
+
+	
+	

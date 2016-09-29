@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>SARMS V1.5 | New Student Registration</title>
+
+		<!-- Bootstrap -->
+		<link href= "{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link href= "{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+		<!-- NProgress -->
+		<link href= "{% static 'css/nprogress.css' %}" rel="stylesheet">
+		<!-- Custom Theme Style -->
+		<link href= "{% static 'css/custom.min.css' %}" rel="stylesheet">
+	</head>
+
+	<body class="login">
+		<div class="row">
+			<div class = "col-md-12">
+				<div class="x_panel">
+				<p>SCHOOL NAME</p>
+					<p class = "col-md-offset-4 text-success">{{message}}</p>
+					<p class = "col-md-offset-4 text-danger">{{error}}</p>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>Student Registration<small><i> The username is the Admission Number, and the password is the surname. This can be changed by the student after he logs in</i></small></h2>
+						
+						<div class="clearfix"></div>
+					</div>
+				  
+					<div class="x_content">
+						<br/>
+				
+						<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method = "POST" action = '{% url "account:student_account" %}'>{% csrf_token %}
+
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-6" for="school">SCHOOL <span class="required">*</span>
+								</label>
+								<div class="col-md-3 col-sm-3 col-xs-6">
+									<select class = "form-control col-md-7 col-xs-12" name="school">
+										<option value="pre_kindergarten">Pre - Kindergarten</option>
+										<option value="kindergarten">Kindergarten</option>
+										<option value="primary">Primary</option>
+										<option value="secondary">Secondary</option>
+									</select>
+								</div>
+							</div>
+						  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="headshot">Headshot <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <label class="btn btn-primary form-control col-md-7 col-xs-12" for="my-file-selector">
+									<input id="my-file-selector" required = "required" name = "headshot" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());" onchange="$('#upload-file-info').html($(this).val());">
+									Click to Upload Headshot
+								</label>
+								<span class='label label-info' id="upload-file-info"></span>
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="surname">Surname <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <input type="text" name="surname" required="required" class="form-control col-md-7 col-xs-12">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first_name">First Name <span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <input type="text" id="last-name" name="first_name" required="required" class="form-control col-md-7 col-xs-12">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label for="middle_name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <input id="middle_name" class="form-control col-md-7 col-xs-12" type="text" name="middle_name">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label for="Address" class="control-label col-md-3 col-sm-3 col-xs-12">Address (20 chars min, 100 max) :</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <textarea id="message" required="required" class="form-control" name="address" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long address.."
+								data-parsley-validation-threshold="10"></textarea>
+							</div>
+						</div>
+						  <div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Country</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <input type="text" class="form-control" name="country" readonly="readonly" placeholder="Nigeria">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label for="state" class="control-label col-md-3 col-sm-3 col-xs-12">State</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <input id="state" class="form-control col-md-7 col-xs-12" type="text" name="state">
+							</div>
+						  </div>
+							<div class="form-group">
+								<label for="lga" class="control-label col-md-3 col-sm-3 col-xs-12">Guardian Name</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input id="lga" class="form-control col-md-7 col-xs-12" type="text" name="guardian_name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="lga" class="control-label col-md-3 col-sm-3 col-xs-12">Guardian Phone Number</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input id="lga" class="form-control col-md-7 col-xs-12" type="text" name="guardian_phone_number">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-6" for="session">Gender <span class="required">*</span>
+								</label>
+								<div class="col-md-3 col-sm-3 col-xs-6">
+									<select class = "form-control" name="gender">
+										<option value="MALE">Male</option>
+										<option value="FEMALE">Female</option>
+									</select>
+								</div>
+							</div>
+						  
+							<div class="ln_solid"></div>
+							<div class="form-group">
+								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								  <button type="submit" class="btn btn-primary">Cancel</button>
+								  <button type="submit" class="btn btn-success">Submit</button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

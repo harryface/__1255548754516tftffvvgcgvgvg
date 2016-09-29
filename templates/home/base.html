@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" Bluegold Ideal Solution is the leader in computer services ranging from website designing to networking. Bluegold offers a free school management system SARMS, Builds school portals, Build company websites even ministries website. We generate identity cards for organisations, produce printed school uniforms for school and consults for ICT firms.">
+    <meta name="author" content="Ilonze Ugochukwu">
+
+    <title>Bluegold Ideal Solutions -  The leader ICT services in Nigeria. We build School Management Systems, We design school portals, We build Websites for companies and other range of ICT services. </title>
+	<link rel="icon" type="image/png" href="{% static 'img/icon.png' %}">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/stmary.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body id = "page-top" class="index">
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand page-scroll" href="#">Bluegold</a>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden">
+						<a href="#page-top"></a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#about">About</a>
+					</li>
+					<li>
+						<a target='_blank' href="http://9jaservers.com">Admission</a>
+					</li>
+					<li>
+						<a target='_blank' href="http://hinzsms.com">Gallery</a>
+					</li>
+					<li>
+						<a class="" href= '#' >Blog</a>
+					</li>
+					<li class = "">
+						<a target='_blank' class="btn btn-warning" href= '{% url "portal" %}' >Access Portal</a>
+					</li>
+					<li>
+						<a target='_blank' class="btn btn-info" href= '{% url "result:result_check" %}' >Check Result</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav> 
+		
+	{% block slideshow %}
+	
+	<div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel" style="">
+
+		<div class="carousel-inner">
+			  
+			<div class="item active"  style="width:100%; max-height:580px;">
+				<img src="{% static 'img/slider/1.png' %}" alt="">
+			</div>
+
+			<div class="item" style="width:100%; max-height:580px;">
+				<img src="{% static 'img/slider/2.png' %}" alt="">
+			</div>
+
+			<div class="item" style="width:100%; max-height:580px;">
+				<img src="{% static 'img/slider/3.png' %}"alt="">
+			</div>
+
+			<div class="item" style="width:100%; max-height:580px;">
+				<img src="{% static 'img/slider/4.png' %}" alt="">
+			</div>
+			
+			<div class="item" style="width:100%; max-height:580px;">
+				<img src="{% static 'img/slider/5.png' %}" alt="">
+			</div>
+		</div>
+	</div>
+	
+	{% endblock %}
+	
+	{% block content %}
+	
+	{% endblock %}
+	
+	<div class="container-fluid last">
+		<div class="row">
+			<div class = "col-md-3 col-sm-6">
+				<h4>Our Vision</h4>
+				<p>To be the leading ICT and educational utility firm in Nigeria, developing administrative tools to deliver superior client satisfaction in an innovative way.</p>
+				 <div class="btn-group-vertical">
+					<a target='_blank' class="btn btn-danger" href =  '#'>Privacy Policy</a>
+					<a target='_blank' class="btn btn-danger" href =  '#' >Terms Of Service</a>
+				</div>
+			</div>
+				
+			<div class = "col-md-3 col-sm-6">
+				<h4>About us</h4>
+				<p>We are a full-service company that focuses on school and software development. We build top notch web and mobile applications, using agile methodology and cutting-edge technologies. Our professional and caring staff is dedicated to delivering only premium quality and comprehensive financial services. This is the highest priorities of our company.</p>
+			</div>
+			
+			<div class = "col-md-2 col-sm-6">
+				<img src = "{% static 'img/logo3.png' %}" class = "img-responsive pull-left" style = "">
+			</div>
+				
+			<div class = "col-md-4 col-sm-6 b">
+				<h4>Stay Connected</h4>
+				<p>Join over 10,200+ people who recieve first hand info on our new products and services, as well as security tips </p>
+				<form class="form-inline" action = '#' method = "POST">{% csrf_token %}
+					<div class="form-group">
+						<input type="email" class="form-control" id="email" placeholder="Enter email">
+						
+					</div>
+					<!--input type="submit" class="btn btn-warning" value="submit"-->
+					<button type="submit" class="btn btn-warning">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	<footer>
+        <div class="container-fluid">
+			<div class="row">
+                <div class="col-md-6">
+                    <span class="copyright">Copyright &copy; {% now "Y" %} <a href = "http://bluegold.com.ng">Bluegold Ideal Solutions</a> All rights reserved</span>
+                </div>
+				<div class="col-md-2">
+				&nbsp;
+                </div>
+                <div class="col-md-4 text-center">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+	
+	<!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/stmary.js' %}"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,103 @@
+body {
+    overflow-x: hidden;
+    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.container {
+    color: #777;
+	width: 750px;
+}
+
+.a {
+	align: center;
+	margin: 5px;
+	padding: 2px
+}
+
+hr {
+	display:block;
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	margin: 5px;
+
+}
+
+.b {
+	padding: 10px;
+	font-size: 11px;
+    line-height: 0.7;
+	width: 60%;
+	
+}
+
+.c {
+	align: right;
+	padding: 2px
+}
+
+.d {
+	text-align: center;
+}
+
+p {
+    font-size: 13px;
+    line-height: 1.25;
+	font-weight: 600;
+}
+
+table {
+	margin: 20px;
+	border-collapse: collapse;
+}
+
+.center {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+table.center {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+table , th, td {
+	/*border: 1px solid black;*/
+
+}
+
+td, th{
+	padding: 1.5px;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+
+h1,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+	font-size: 24px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+	font-size: 18px;
+}
+
+img {
+    margin: 0 auto;
+}
+

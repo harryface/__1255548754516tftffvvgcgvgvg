@@ -73,8 +73,6 @@ INSTALLED_APPS = (
 	'account',
 	'blog',
 	'processor',
-	'cbt',
-	'elibrary',
 )
 
 MIDDLEWARE_CLASSES = (
